@@ -1,0 +1,28 @@
+1) Compiler design.
+
+basics.
+6 phases.
+
+
+
+2) Machine learning
+
+assignment -
+bayes theorem and naive bayes theorem.
+eg: 2 for each. to be submitted in A4.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
