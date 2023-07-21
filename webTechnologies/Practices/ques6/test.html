@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 150px;
+
+        }
+        .sub-container {
+            background-color: #e1dfdf;
+            padding: 20px;
+            border-radius: 7px;
+
+        }
+        .btns {
+            margin: 10px 0;
+
+        }
+        button {
+            font-size: 15px;
+            font-weight: 200;
+            cursor: pointer;
+
+        }
+    </style>
+
+</head>
+<body>
+    
+
+
+
+    <div class="container">
+
+        <div class="sub-container">
+            <div class="field">
+                <input id="number" type="text" placeholder="Enter a number">
+            </div>
+            <div class="btns">
+                <button onclick="factorial()">Factorial</button>
+            </div>
+            <div class="btns">
+                <button onclick="fibonacci()">Fibonacci series</button>
+            </div>
+            <div class="btns">
+                <button onclick="prime()">Prime numbers</button>
+            </div>
+            <div class="btns">
+                <button onclick="isPalindrome()">Is It Palindrome</button>
+            </div>
+            <div id="solution"></div>
+        </div>
+        
+    </div>
+
+    <script>
+
+        function factorial() {
+            let num = document.getElementById('number').value
+            let sol = document.getElementById('solution')
+            num = parseInt(num)
+            let fact = 1;
+            while (num != 1) {
+                fact *= num;
+                num--;
+            }
+            sol.innerText = fact;
+            
+        }
+
+        function fibonacci() {
+
+            let num = document.getElementById('number').value 
+            let sol = document.getElementById('solution')
+            num = parseInt(num)
+            let a = 0
+            let b = 1
+            let c = 0
+            let res = ''
+            res += a + ' ' + b + ' '
+            c = a + b 
+            b = c 
+            a = b
+            while (true) {
+                c = a + b 
+                if (c > num) break 
+                res += c + ' '
+                a = b 
+                b = c 
+
+            }
+            sol.innerHTML = res 
+
+        }
+
+        function factors(n) {
+            let c = 0
+            for (let i = 1; i <= n; i++) {
+                if (n % i == 0) 
+                    c++;
+
+            }
+            return c
+        }
+
+        function prime() {
+            let num = document.getElementById('number').value
+            let sol = document.getElementById('solution')
+
+            let n = 2;
+            let res = ''
+
+            while (n < num) {
+
+                if (factors(n) == 2) {
+                    res += n + ' '
+                }
+                n++
+            }
+            sol.innerHTML = res 
+
+        }
+
+        function isPalindrome() {
+            let num = document.getElementById('number').value
+            let sol = document.getElementById('solution')
+
+            let i = 0
+            let j = num.length - 1
+            while (i <= j) {
+                if (num[i] != num[j]){
+                    sol.innerHTML = 'num is not a Palindrome'
+                    return ;
+                }
+                i++
+                j--
+            }
+            sol.innerHTML = 'num is a Palindrome'
+            sol.style.backgroundColor = 'red'
+            sol.style.color = '#fff';
+            sol.style.fontSize = '25px';
+
+
+
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+
+input[type="button"] {
+
+    padding: 10px;
+    font-size: 15px;
+    cursor: pointer;
+
+}
+
+input[type="button"]:hover{
+    background-color: aquamarine;
+    
+
+}
+

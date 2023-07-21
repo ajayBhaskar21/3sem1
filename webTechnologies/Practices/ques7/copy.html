@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Palette</title>
+    <link rel="stylesheet" href="styles.css">
+
+
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .color-palette {
+            display: flex;
+            
+
+
+        }
+
+        .color {
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+
+        }
+
+        /* Define colors for the color palette */
+        .color[data-color="#ff0000"] {
+            background-color: #ff0000; /* Red */
+        }
+
+        .color[data-color="#00ff00"] {
+            background-color: #00ff00; /* Green */
+        }
+
+        .color[data-color="#0000ff"] {
+            background-color: #0000ff; /* Blue */
+        }
+        .color[data-color="pink"] {
+            background-color: pink; /* Blue */
+        }
+        .color[data-color="yellow"] {
+            background-color: yellow; /* Blue */
+        }   
+        .color[data-color="orange"] {
+            background-color: orange; /* Blue */
+        }
+        .color[data-color="black"] {
+            background-color: black; /* Blue */
+        }
+        .color[data-color="grey"] {
+            background-color: grey; /* Blue */
+        }
+
+        /* Add more colors here */
+
+    </style>
+
+
+</head>
+
+<body>
+    <div class="color-palette">
+        <div class="color" data-color="#ff0000"></div>
+        <div class="color" data-color="#00ff00"></div>
+        <div class="color" data-color="#0000ff"></div>
+        <div class="color" data-color="pink"></div>
+        <div class="color" data-color="yellow"></div>
+        <div class="color" data-color="orange"></div>
+        <div class="color" data-color="black"></div>
+        <div class="color" data-color="grey"></div>
+
+
+        <!-- Add more colors here -->
+    </div>
+    <script>
+
+        // Get all color elements with the "color" class
+        const colors = document.querySelectorAll(".color");
+
+        // Add a mouseover event listener to each color element
+        colors.forEach((color) => {
+            color.addEventListener("mouseover", () => {
+                // Get the data-color attribute value and set it as the background color of the body
+                const bgColor = color.getAttribute("data-color");
+                document.body.style.backgroundColor = bgColor;
+            });
+
+            // Add a mouseout event listener to reset the background color when the mouse leaves the color element
+            color.addEventListener("mouseout", () => {
+                document.body.style.backgroundColor = "";
+            });
+        });
+
+
+    </script>
+</body>
+
+</html>

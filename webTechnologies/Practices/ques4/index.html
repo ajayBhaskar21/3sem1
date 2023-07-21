@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+
+
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+
+        }
+        .container form {
+            background-color: #f2f2f2;
+            border-radius: 10px;
+
+
+        }
+
+
+    </style>
+
+
+</head>
+<body>
+    
+    <div class="container">
+        <form action="">
+            <h1>Student Registration Form</h1>
+            
+            <Label>FirstName: </Label><input type="text" name="firstname" id="" placeholder=""><br>
+            <Label>LastName: </Label><input type="text" name="lastname" id="" placeholder=""><br>
+
+            <Label>Registration No: </Label><input type="text" name="regno" id="" placeholder=""><br>
+            <Label>Email: </Label><input type="email" name="email" id="" placeholder=""><br>
+            
+            <Label>Gender: </Label><input type="radio" value="Male" name="gender" id="" >Male
+            <input type="radio" value="Female" name="gender" id="">Female<br>
+
+            <Label>Age: </Label><input type="number" name="age" id="" placeholder=""><br>
+            <Label>Year: </Label>
+            <select name="year" id="">
+                <option value="1st">1st</option>
+                <option value="2nd">2nd</option>
+                <option value="3rd">3rd</option>
+                <option value="4th">4th</option>
+            </select><br>    
+            <Label>Course: </Label>
+            <input type="checkbox" name="" value="B.Tech" id="">B.Tech 
+            <input type="checkbox" name="" value="M.Tech" id="">M.Tech 
+            <input type="checkbox" name="" value="PhD" id=""> Phd <br>
+
+            <label for="">Certificates:</label>
+            <input type="file" name="fileupload"><br>
+            Hobbies: <br>
+            <textarea name="" id="" cols="30" rows="3"></textarea><br>  
+            <input type="submit">
+            <input type="reset">
+
+
+        </form>
+    </div>
+    
+
+
+
+</body>
+</html>
