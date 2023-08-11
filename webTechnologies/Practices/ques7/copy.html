@@ -86,18 +86,18 @@
 
         // Add a mouseover event listener to each color element
         colors.forEach((color) => {
-            color.addEventListener("click", () => {
+            color.addEventListener("mouseover", () => {
                 // Get the data-color attribute value and set it as the background color of the body
                 const bgColor = color.getAttribute("data-color");
                 document.body.style.backgroundColor = bgColor;
             });
 
             // Add a mouseout event listener to reset the background color when the mouse leaves the color element
-            /*
+            
             color.addEventListener("mouseout", () => {
                 document.body.style.backgroundColor = "";
             });
-            */
+            
         });
 
 
