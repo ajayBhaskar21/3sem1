@@ -13,3 +13,11 @@ Download 338 mb file .
 Select platform independent and then download zip file to extract the .jar file from this.
 
 4) code available in basic.java 
+
+
+
+
+// video links provided here
+1) how to download netbeans - https://www.youtube.com/watch?v=aPPuwOp9iF8
+2) how to download mysql in windows - https://www.youtube.com/watch?v=qBBXBZXKi0w
+3) how to insert .jar file - https://www.youtube.com/watch?v=_BTC1vr2zp0
