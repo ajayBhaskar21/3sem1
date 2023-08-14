@@ -1,0 +1,15 @@
+1) Download NetBeans IDE
+2) Download MySQL (Server, Shell, Workbench)
+3) Download mySQL Driver (This is .jar file has to be included in project's Libraries folder)
+4) Take the code and Run . See the output in Workbench.
+
+
+All the Links provided here.
+1) https://dlcdn.apache.org/netbeans/netbeans-installers/18/Apache-NetBeans-18-bin-windows-x64.exe
+2) https://dev.mysql.com/downloads/installer/
+Download 338 mb file .
+
+3) https://dev.mysql.com/downloads/connector/j/
+Select platform independent and then download zip file to extract the .jar file from this.
+
+4) code available in basic.java 
