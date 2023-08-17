@@ -1,0 +1,19 @@
+Install Apache Tomcat:
+
+Download Apache Tomcat from its official website: http://tomcat.apache.org/download-90.cgi
+Follow the installation instructions for your operating system.
+Deploy Your Application:
+
+Copy your HTML and JSP files (index.html, check.jsp, success.jsp, and failed.jsp) into the appropriate directory in the webapps folder of your Tomcat installation. You can create a new directory for your application (e.g., myapp) and place the files there.
+Start Tomcat:
+
+Navigate to the bin directory of your Tomcat installation.
+Run the appropriate startup script:
+On Windows: Run startup.bat  (Double click)
+On Linux/macOS: Run startup.sh
+This will start the Tomcat server.
+Access Your Application:
+
+Open your web browser.
+In the address bar, enter the following URL: http://localhost:8080/myapp/index.html
+Replace myapp with the name of the directory where you placed your files.
