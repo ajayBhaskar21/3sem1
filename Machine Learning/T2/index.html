@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Confusion Matrix</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>CONFUSION MATRIX</h1>
+        <form id="confusion-form">
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>True Apple</th>
+                        <th>True Orange</th>
+                        <th>True Mango</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Predicted Apple</td>
+                        <td><input type="text" name="matrix00"></td>
+                        <td><input type="text" name="matrix01"></td>
+                        <td><input type="text" name="matrix02"></td>
+                    </tr>
+                    <tr>
+                        <td>Predicted Orange</td>
+                        <td><input type="text" name="matrix10"></td>
+                        <td><input type="text" name="matrix11"></td>
+                        <td><input type="text" name="matrix12"></td>
+                    </tr>
+                    <tr>
+                        <td>Predicted Mango</td>
+                        <td><input type="text" name="matrix20"></td>
+                        <td><input type="text" name="matrix21"></td>
+                        <td><input type="text" name="matrix22"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="button" id="calculate-button">Calculate Metrics</button>
+        </form>
+        <div class="metrics">
+            <h2>Metrics</h2>
+            <p>Accuracy (Apple): <span class="sol" id="accuracyApple"></span></p>
+            <p>Precision (Apple): <span class="sol" id="precisionApple"></span></p>
+            <p>Recall (Apple): <span class="sol" id="recallApple"></span></p>
+            <p>F1 Score (Apple): <span class="sol" id="f1Apple"></span></p>
+
+            <p>Accuracy (Orange): <span class="sol" id="accuracyOrange"></span></p>
+            <p>Precision (Orange): <span class="sol" id="precisionOrange"></span></p>
+            <p>Recall (Orange): <span class="sol" id="recallOrange"></span></p>
+            <p>F1 Score (Orange): <span class="sol" id="f1Orange"></span></p>
+
+            <p>Accuracy (Mango): <span class="sol" id="accuracyMango"></span></p>
+            <p>Precision (Mango): <span class="sol" id="precisionMango"></span></p>
+            <p>Recall (Mango): <span class="sol" id="recallMango"></span></p>
+            <p>F1 Score (Mango): <span class="sol" id="f1Mango"></span></p>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
