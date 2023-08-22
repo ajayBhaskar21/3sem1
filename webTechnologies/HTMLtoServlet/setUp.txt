@@ -1,0 +1,11 @@
+1) Create Dynamic Web Project
+2) Create the home.html inside "src/main/webapp/"
+3) Add servlet api from mvn repository (Tomcat api with suitable version)
+Add this in classPath (jar file)
+4) Inside Java Resources and in src/main/java
+create a package "com.servlet" 
+Inside that package create a class "RegisterServlet"
+5) Java file is created and then add java code
+6) Update web.xml which is located at WEB-INF folder.
+7) Run on server
+8) Output in the browser.
