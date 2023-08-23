@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Collections;
+
 class mat {
     public static void main(String[] args) {
         int[][] matrix = {
@@ -6,6 +9,7 @@ class mat {
             {4, 2, 3}
         };
         String[] classes = {"Apple", "Orange", "Mango"};
+        ArrayList<Double> accuracies = new ArrayList<>();
         for (int i = 0; i < matrix.length; i++) {
             int TP = 0, TN = 0, FP = 0, FN = 0;
             System.out.println("For Class : " + classes[i]);
@@ -24,6 +28,7 @@ class mat {
             for (int k = 0; k < matrix.length; k++) 
                 if (k != i) 
                     FN += matrix[k][i];
+            accuracies.add((TP + TN) / (double) (TP + TN + FP + FN));
             double precision = TP / (double) (TP + FP);
             double recall = TP / (double) (TP + FN);
             System.out.println("TP, TN, FP, FN : " + TP + " " + TN + " " + FP + " " + FN);
@@ -32,5 +37,15 @@ class mat {
             System.out.println("Recall = " + recall);
             System.out.println("F1 score = " + (2 * precision * recall) / (precision + recall));
         }
+
+        double max = Collections.max(accuracies);
+        for (int i = 0; i < accuracies.size(); i++) {
+            if (accuracies.get(i) == max) {
+                System.out.print("Class with highest accracy is " + classes[i]);
+                System.out.println(" with an accuracy of " + accuracies.get(i) );
+                break;
+            }
+        }
+
     }
 }
