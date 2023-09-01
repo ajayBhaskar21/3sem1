@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sign Up</title>
+    
+
+
+
+    <style>
+        /* Reset default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #222;
+            color: #fff;
+            padding: 1em 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 auto;
+            max-width: 1200px;
+            padding: 0 20px;
+        }
+
+        .logo a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-right: 20px;
+        }
+
+        .nav-links a {
+            color: #6bed3b;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+            background-color: blue;
+        }
+
+        .container {
+            
+            width: 350px; /* Adjust container width */
+            margin: 40px auto;
+            padding: 20px;
+            height: 450px;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 6px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .container h1 {
+            margin-bottom: 20px;
+        }
+
+        .container form label {
+            display: block;
+            margin-bottom: 5px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .container form input[type="text"],
+        .container form input[type="email"],
+        .container form input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .container form button {
+            padding: 10px 20px;
+            background-color: #6bed3b;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .container form button:hover {
+            background-color: #4fad29;
+        }
+
+        footer {
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            margin-top: auto; /* Add this line to remove the gap */
+        }
+
+        .logo span {
+            color: #6bed3b;
+        }
+
+
+        /* Add new styling for the "Sign In" link */
+        .container p.signin-link {
+            margin-top: 20px;
+        }
+
+        .container p.signin-link a {
+            color: blue;
+            text-decoration: underline;
+        }
+
+        .container p.signin-link a:hover {
+            color: blue;
+        }
+
+    </style>
+
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="home.jsp">Event<span>Hub</span></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="events.jsp">View Events</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Sign Up</h1>
+        <form action="signup.jsp" method="POST">
+            <label for="username">Username:</label>
+            <input type="text" id="username" oninput="validateUsername()" name="username" required><br>
+            <p id="usernameError" style="color: red;"></p> <!-- Display username error -->
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" oninput="validateEmail()" name="email" required><br>
+            <p id="emailError" style="color: red;"></p> <!-- Display email error -->
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" oninput="validatePassword()" name="password" required><br>
+            <p id="passwordError" style="color: red;"></p> <!-- Display password error -->
+            
+            <button onclick="submitForm()" type="button">Sign Up</button>
+        </form>
+        <!-- Add the "Sign In" link -->
+        <p class="signin-link">Already have an account? <a href="signin.html">Sign in</a></p>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 EventHub. All rights reserved.</p>
+    </footer>
+    
+    
+    <script>
+        // Username starts with a capital letter and must contain at least one digit
+        function validateUsername() {
+            let username = document.getElementById('username').value;
+
+            let usernamePattern = /^[A-Z][A-Za-z0-9]*\d.*$/;
+
+            if (usernamePattern.test(username) && username.length >= 6) {
+                document.getElementById('usernameError').innerHTML = "";
+                return true;
+            } else {
+                document.getElementById('usernameError').innerHTML = "*Username must start with a capital letter, contain at least one digit, and be at least 6 characters long";
+                return false;
+            }
+        }
+
+
+        // Password contains at least 1 uppercase letter, 1 lowercase letter, and 1 special character (excluding . , ; :)
+        function validatePassword() {
+            let password = document.getElementById('password').value;
+            if (password.length == 0) {
+                document.getElementById('passwordError').innerHTML = "";
+            }
+            let uppercaseFlag = false;
+            let lowercaseFlag = false;
+            let specialCharFlag = false;
+            let excludedChars = ",.;:";
+            let specialChars = "!@#$%^&*()-_=+{}[]|'\"<>";
+
+            if (password.length < 8) {
+                document.getElementById('passwordError').innerHTML = "*Password must be at least 8 characters long";
+                return false;
+            }
+
+            for (let i = 0; i < password.length; i++) {
+                if (password[i] >= 'A' && password[i] <= 'Z') {
+                    uppercaseFlag = true;
+                } else if (password[i] >= 'a' && password[i] <= 'z') {
+                    lowercaseFlag = true;
+                } else if (specialChars.indexOf(password[i]) !== -1) {
+                    specialCharFlag = true;
+                } else if (excludedChars.indexOf(password[i]) !== -1) {
+                    document.getElementById('passwordError').innerHTML = "*Password must not contain , . ; :";
+                    return false;
+                }
+            }
+
+            if (uppercaseFlag && lowercaseFlag && specialCharFlag) {
+                document.getElementById('passwordError').innerHTML = "";
+                return true;
+            } else {
+                document.getElementById('passwordError').innerHTML = "*Password must contain at least 1 uppercase letter, 1 lowercase letter, 1 special character";
+                return false;
+            }
+        }
+
+
+
+        // Email contains @, ., 1-20 characters
+        function validateEmail() {
+            let email = document.getElementById('email').value;
+            let emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{1,20}$/;
+
+            if (emailPattern.test(email)) {
+                document.getElementById('emailError').innerHTML = "";
+                return true;
+            } else {
+                document.getElementById('emailError').innerHTML = "*Invalid email format";
+                return false;
+            }
+
+
+
+
+        }
+
+        function submitForm() {
+            if (validateUsername() && validatePassword() && validateEmail()) {
+                // Form validation successful, submit the form
+                document.querySelector("form").submit();
+            } else {
+                // Form validation failed, display alert message
+                alert("Form validation failed. Please correct the errors.");
+            }
+        }
+    </script>
+
+    
+    
+    
+    
+    
+</body>
+
+
+
+</html>
