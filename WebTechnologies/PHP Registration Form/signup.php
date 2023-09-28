@@ -4,7 +4,6 @@
     $username = "root";
     $password = "root";
     $dbname = "mydb";
-
     // Create a connection
     $conn = mysqli_connect($servername, $username, $password, $dbname);
 
@@ -34,9 +33,4 @@
     // Close the database connection
     mysqli_close($conn);
 ?>
-
-
-
-
-
 
