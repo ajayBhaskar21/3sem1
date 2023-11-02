@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <title>AngularJS Registration Form</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input {
+            width: 95%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        /* Style for error messages */
+        span.error {
+            color: red;
+            font-size: 12px;
+            display: block;
+            /* Show the error message on a new line */
+        }
+
+        button[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            background-color: #0074D9;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div ng-controller="RegistrationController" class="container">
+        <center>
+            <h1>Sign Up Form</h1>
+        </center>
+        <form name="myForm" ng-submit="submitForm()">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" ng-model="user.username" ng-pattern="/^[A-Z][a-zA-Z0-9]*$/"
+                ng-minlength="6">
+            <span ng-show="myForm.username.$error.pattern" class="error">Username must start with a capital
+                letter</span>
+            <span ng-show="myForm.username.$error.minlength" class="error">Username must be at least 6 characters
+                long.</span>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" ng-model="user.password"
+                ng-pattern="/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#\$%\^\&*()_+])[A-Za-z\d!@#\$%\^\&*()_+]{8,}$/"
+                ng-minlength="8">
+            <span ng-show="myForm.password.$error.pattern" class="error">Password must be at least 8 characters long and
+                contain at least one uppercase letter, one lowercase letter, one digit, and one special
+                character.</span>
+            <span ng-show="myForm.password.$error.minlength" class="error">Password must be at least 8 characters
+                long.</span>
+
+            <button type="submit" >Submit</button>
+        </form>
+    </div>
+
+    <script>
+        var app = angular.module('myApp', []);
+
+        app.controller('RegistrationController', function ($scope, $http) {
+            $scope.user = {}; // Initialize user object
+
+            $scope.submitForm = function () {
+                if ($scope.myForm.$valid) {
+                    // Form is valid, make an HTTP request to your PHP script
+                    $http.post('process_form.php', $scope.user)
+                        .then(function (response) {
+                            if (response.data.success) {
+                                alert('Form submitted successfully!');
+                            } else {
+                                alert('Error: ' + response.data.message);
+                            }
+                        });
+                } else {
+                    // Form is invalid, show an error message
+                    alert('Please correct the form errors before submitting.');
+                }
+            };
+        });
+    </script>
+</body>
+
+</html>
