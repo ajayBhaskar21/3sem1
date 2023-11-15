@@ -1,0 +1,10 @@
+Intermediate code
+1. t0 = x
+2. if t0 == 1 goto(5)
+3. if t0 == -1 goto(7)
+4. goto(9)
+5. return("yx")
+6. goto(10)
+7. return("y-x")
+8. goto(10)
+9. return("y1")

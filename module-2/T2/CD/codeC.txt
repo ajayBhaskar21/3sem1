@@ -1,0 +1,20 @@
+switch(x)
+{
+case 1 : y x; break;
+case -1 : y -x; break;
+default : y 1; break;
+}
+code to calculate x into t goto test
+
+test : 
+if t == 1 goto L1
+if t == -1 goto L2
+goto L3
+goto next
+
+L1 : y x 
+goto next 
+L2 : y -x
+goto next
+L3 : y 1
+goto next

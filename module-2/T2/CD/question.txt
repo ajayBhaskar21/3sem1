@@ -1,0 +1,9 @@
+switch(E)
+{
+case v1 : S1
+case v2 : S2
+............
+............
+case vn-1 : Sn-1
+default : Sn
+}
