@@ -6,10 +6,9 @@ def questionA():
     # take input from the csv
     df = pd.read_csv('data.csv')
     
-    # dataset = [5, 10, 15, 20, 25, 30, 35]
-
+    # read from csv file and convert into list
+    dataset = df['distance']
     
-
     # no of clusters
     k = 2
     # no of centroids
@@ -74,8 +73,12 @@ def questionA():
 
 
 def questionB() :
-    dataset = [5, 10, 15, 20, 25, 30, 35]
-
+    # take input from the csv
+    df = pd.read_csv('data.csv')
+    
+    # read from csv file and convert into list
+    dataset = df['distance']
+    
     # no of clusters
     k = 2
 
