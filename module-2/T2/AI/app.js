@@ -1,13 +1,16 @@
 function observes () {
     // child watches father walking
+    countOfObserving++;
     console.log('infant observing the surroundings!!!');
     description.innerText = 'infant observing the surroundings!!!';
+    output.innerHTML = '<img src="./images/Observes/observes1.jpg" alt="child observing">';
 }
 
 function fatherSupports () {
     // father holds child and makes him to walk
     console.log('father supports infant to walk');
     description.innerText = 'father supports infant to walk';
+    output.innerHTML = '<img src="./images/Supports/fatherSupports2.jpg" alt="father is supporting">';
 }
 
 function fatherTrainsInfant() {
@@ -34,37 +37,49 @@ function ageChanger() {
 }
 
 function trysToCrawl() {
-    let hasFatherCalled = fatherCalls();
-    if (!hasFatherCalled) {
-        console.log('father has not called');
-        description.innerText = 'father has not called';
-    } 
+    if (countOfObserving == 0) {
+        description.innerText = 'child did not observe anything!!';
+    }
     else {
-        if (countFatherTrains > 3 && (age >= 6 && age <= 9)) {
-            console.log('image showing an infant trying to crawl');
-            description.innerText = 'image showing an infant trying to crawl';
-        }
+        let hasFatherCalled = fatherCalls();
+        if (!hasFatherCalled) {
+            console.log('father has not called');
+            description.innerText = `father has not called, current age = ${age}`;
+        } 
         else {
-            console.log('still learning!!!');
-            description.innerText = 'still learning!!!';
+            if (countFatherTrains > 3 && (age >= 6 && age <= 9)) {
+                console.log('image showing an infant trying to crawl');
+                output.innerHTML = '<img src="./images/Crawls/crawl2.jpg" alt="child crawling">';
+                description.innerText = `image showing an infant trying to crawl, current age = ${age}`;
+            }
+            else {
+                console.log('still learning!!!');
+                description.innerText = 'still learning!!!';
+            }
         }
     }
 }
 
 function crawls() {
-    let hasFatherCalled = fatherCalls();
-    if (!hasFatherCalled) {
-        console.log('father has not called');
-        description.innerText = 'father has not called';
+    if (countOfObserving == 0) {
+        description.innerText = 'child did not observe anything!!';
     }
     else {
-        if (countFatherTrains > 7 &&  (age >= 10 && age <= 11)) {
-            console.log('infant crawls');
-            description.innerText = 'infant crawls';
+        let hasFatherCalled = fatherCalls();
+        if (!hasFatherCalled) {
+            console.log('father has not called');
+            description.innerText = 'father has not called';
         }
         else {
-            console.log('still learning!!!');
-            description.innerText = 'still learning!!!';
+            if (countFatherTrains > 7 &&  (age >= 10 && age <= 11)) {
+                console.log('infant crawls');
+                description.innerText = 'infant crawls';
+                output.innerHTML = '<img src="./images/Crawls/crawl1.jpg" alt="child crawling">';
+            }
+            else {
+                console.log('still learning!!!');
+                description.innerText = 'still learning!!!';
+            }
         }
     }
 }
@@ -80,6 +95,7 @@ function stands () {
         // stands successfully
         console.log('child stands');
         description.innerText = 'child stands';
+        output.innerHTML = '<img src="./images/Stands/stands3.jpg" alt="child standing">';
     }
     else {
         console.log('child still learning!!!!');
@@ -97,6 +113,8 @@ function walks() {
     if (coundChildTrysToWalk > 6 && (age > 15 && age < 20)) {
         console.log('child walks');
         description.innerText = 'child walks';
+        
+        output.innerHTML = '<img src="./images/Walks/walks1.jpg" alt="child walking">';
     }
     else {
         console.log('child still learning!!!!');
@@ -104,10 +122,11 @@ function walks() {
     }
 }
 
+
+let countOfObserving = 0;
 let countFatherTrains = 0;
 let countChildTrysToStand = 0;
 let coundChildTrysToWalk = 0;
 let age = 0;
 let description = document.getElementById('description');
-
-
+let output = document.getElementById('output');
